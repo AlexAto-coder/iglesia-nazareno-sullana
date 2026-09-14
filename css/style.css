@@ -1,0 +1,756 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  line-height: 1.6;
+  background: #fff;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+    /* Identidad Nazarena */
+    --verde: #40996D;
+    --verde-claro: #62D9A8;
+    --verde-oscuro: #2F7D5B;
+    --verde-suave: #E2F3DB;
+
+
+    /* Colores complementarios */
+   --morado: #836AA3;
+    --naranja: #F47B20;
+    --azul-complementario: #53819A;
+
+    /* Neutros */
+    --blanco: #FFFFFF;
+    --gris-claro: #F5F5F5;
+    --gris: #666666;
+    --texto: #303030;
+
+    /* Efectos */
+    --sombra: 0 10px 30px rgba(0, 0, 0, 0.10);
+}
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.container {
+  width: min(90%, 1200px);
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--blanco);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.nav-container {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-text span {
+  font-size: 0.85rem;
+  color: var(--azul);
+  font-weight: 600;
+}
+
+.logo-text strong {
+  color: var(--dorado);
+  font-size: 1rem;
+}
+
+/* =========================================
+   NAVEGACIÓN
+========================================= */
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-list > li {
+  position: relative;
+}
+
+.nav-list > li > a {
+  display: block;
+  padding: 28px 12px;
+  color: var(--azul-oscuro);
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-list > li > a:hover {
+  color: var(--dorado);
+}
+
+/* =========================================
+   FLECHA
+========================================= */
+
+.arrow {
+  margin-left: 4px;
+  font-size: 0.75rem;
+}
+
+/* =========================================
+   MENÚ DESPLEGABLE
+========================================= */
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 270px;
+  background: var(--blanco);
+  box-shadow: var(--sombra);
+  border-top: 3px solid var(--dorado);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+
+  transition: 0.25s ease;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 12px 18px;
+  color: var(--azul-oscuro);
+  font-size: 0.88rem;
+  transition: 0.25s;
+}
+
+.dropdown-menu li a:hover {
+  background: var(--gris-claro);
+  color: var(--dorado);
+  padding-left: 23px;
+}
+
+/* Mostrar dropdown */
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* =========================================
+   MENÚ MÓVIL
+========================================= */
+
+.menu-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: var(--azul);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 650px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.96) 0%,
+            rgba(255, 255, 255, 0.82) 38%,
+            rgba(35, 72, 61, 0.25) 70%,
+            rgba(35, 72, 61, 0.65) 100%
+        ),
+        url("../img/templo-exterior.png");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--verde-oscuro);
+}
+
+.hero-content {
+    width: min(90%, 1100px);
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.hero-anniversary {
+  color: var(--dorado);
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.hero h2 {
+    color: var(--verde-oliva);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    margin-bottom: 25px;
+}
+
+.hero p:not(.hero-anniversary) {
+  max-width: 750px;
+  margin: 0 auto 30px;
+  font-size: 1.05rem;
+}
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.hero-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 28px;
+    background: var(--verde);
+    color: var(--blanco);
+    font-weight: 700;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--verde-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+.btn-outline {
+    background: transparent;
+    color: var(--verde-oscuro);
+    border: 2px solid var(--verde);
+}
+
+.btn-outline:hover {
+    background: var(--verde);
+    color: var(--blanco);
+}
+
+/* =========================================
+   SECCIONES
+========================================= */
+
+section {
+  padding: 90px 0;
+}
+
+section h2 {
+  color: var(--azul);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--dorado);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.8rem;
+}
+
+/* =========================================
+   QUIÉNES SOMOS
+========================================= */
+
+.about {
+  background: var(--blanco);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--sombra);
+}
+
+.about-content p {
+  color: var(--gris);
+  margin-bottom: 25px;
+}
+
+/* =========================================
+   ANIVERSARIO
+========================================= */
+
+.anniversary {
+    background: var(--azul-complementario);
+    color: var(--blanco);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.anniversary h2 {
+    color: var(--blanco);
+    margin-bottom: 15px;
+}
+
+.anniversary p {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    line-height: 1.7;
+}
+
+.anniversary-years {
+    color: var(--dorado);
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   HORARIOS
+========================================= */
+
+.schedule {
+  background: var(--gris-claro);
+  text-align: center;
+}
+
+.schedule p {
+  color: var(--gris);
+}
+
+/* =========================================
+   MINISTERIOS
+========================================= */
+
+.ministries {
+  background: var(--blanco);
+  text-align: center;
+}
+
+.ministries-grid {
+  margin-top: 40px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.ministry-card {
+  padding: 30px 20px;
+  background: var(--gris-claro);
+  border-radius: 8px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+  transition: 0.3s;
+}
+
+.ministry-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra);
+}
+
+.ministry-card h3 {
+  color: var(--azul);
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+.ministry-card p {
+  color: var(--gris);
+  font-size: 0.9rem;
+  min-height: 55px;
+  margin-bottom: 18px;
+}
+
+.ministry-card a {
+  color: var(--dorado);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+/* =========================================
+   CONTACTO
+========================================= */
+
+.contact {
+  background: var(--gris-claro);
+  text-align: center;
+}
+
+.contact p {
+  color: var(--gris);
+  margin-bottom: 25px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  text-align: center;
+  padding: 30px 0;
+}
+
+.footer p {
+  font-size: 0.85rem;
+  margin: 5px 0;
+}
+
+.footer p:last-child {
+  color: var(--dorado);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+  .nav-list > li > a {
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 0.82rem;
+  }
+
+  .ministries-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .nav {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: var(--blanco);
+
+    display: none;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav.active {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav-list > li > a {
+    padding: 15px 25px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .dropdown-menu {
+    position: static;
+    min-width: 100%;
+
+    display: none;
+
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+
+    box-shadow: none;
+    border-top: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .ministries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .nav-container {
+    min-height: 70px;
+  }
+
+  .logo img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .logo-text span {
+    font-size: 0.7rem;
+  }
+
+  .logo-text strong {
+    font-size: 0.85rem;
+  }
+
+  .nav {
+    top: 70px;
+  }
+
+  .hero {
+    min-height: 600px;
+  }
+
+  section {
+    padding: 65px 0;
+  }
+
+  .hero p:not(.hero-anniversary) {
+    font-size: 0.95rem;
+  }
+
+  .ministries-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons .btn {
+    width: min(100%, 250px);
+  }
+}
+
+/* =========================================
+   RESPONSIVE HORARIOS
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .schedule-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .schedule-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .schedule-card {
+        max-width: 450px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+}
+
+/* =========================================
+   HORARIOS DE LA IGLESIA
+========================================= */
+
+.schedule {
+    background: var(--crema);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.schedule h2 {
+    color: var(--verde-oscuro);
+    margin-bottom: 15px;
+}
+
+.schedule-intro {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    color: var(--gris);
+}
+
+
+/* CUADROS */
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* CADA DÍA */
+
+.schedule-card {
+    background: var(--blanco);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    border: 1px solid rgba(35, 72, 61, 0.10);
+}
+
+
+/* NOMBRE DEL DÍA */
+
+.schedule-day {
+    background: var(--verde);
+    color: var(--blanco);
+    padding: 20px;
+}
+
+.schedule-day h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+
+/* ACTIVIDADES */
+
+.schedule-event {
+    padding: 22px 15px;
+}
+
+.schedule-event + .schedule-event {
+    border-top: 1px solid #eeeeee;
+}
+
+
+/* HORA */
+
+.schedule-time {
+    display: block;
+    color: var(--verde);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+
+/* ACTIVIDAD */
+
+.schedule-event h3 {
+    margin: 0;
+    color: var(--texto);
+    font-size: 1rem;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .schedule-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .schedule-card {
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+}
