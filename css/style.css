@@ -754,3 +754,141 @@ section h2 {
     }
 
 }
+
+/* =================================
+   MENÚ MÓVIL
+   ================================= */
+
+@media (max-width: 899px) {
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .nav.show {
+        display: block;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-list > li > a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 14px 10px;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        padding: 0 0 5px 15px;
+    }
+
+    .dropdown-menu li a {
+        display: block;
+        padding: 11px 10px;
+        font-size: 0.95rem;
+    }
+}
+
+/* =================================
+   SUBMENÚS EN MÓVIL
+   ================================= */
+
+@media (max-width: 899px) {
+
+    .dropdown-menu {
+        display: none;
+        position: static;
+        width: 100%;
+        padding: 5px 0 10px 15px;
+        margin: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu li a {
+        display: block;
+        padding: 11px 10px;
+        font-size: 0.9rem;
+    }
+
+}
+
+/* =================================
+   AJUSTES FINALES DEL MENÚ MÓVIL
+   ================================= */
+
+@media (max-width: 899px) {
+
+    /* Menú principal */
+    .nav.show {
+        background: var(--blanco);
+        border-top: 1px solid #eeeeee;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        padding: 5px 0;
+    }
+
+    .nav-list {
+        width: 100%;
+    }
+
+    .nav-list > li {
+        width: 100%;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .nav-list > li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-list > li > a {
+        min-height: 48px;
+        padding: 14px 10px;
+    }
+
+    /* Submenú */
+    .dropdown-menu {
+        background: #f8faf8;
+        border-left: 3px solid var(--verde);
+        padding: 5px 0 8px 10px;
+        margin: 0 10px 8px 10px;
+    }
+
+    .dropdown-menu li {
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    .dropdown-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .dropdown-menu li a {
+        padding: 11px 12px;
+        line-height: 1.4;
+    }
+
+    /* Efecto al tocar los enlaces */
+    .nav-list a:active {
+        background: var(--verde-suave);
+    }
+
+}
